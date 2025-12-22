@@ -1,0 +1,6 @@
+﻿  test.c
+C:\Users\lijin\source\repos\TTAk\test.c(582,12): warning C4476: 'printf' : 서식 지정자에 알 수 없는 형식 필드 문자 '\xec'이(가) 있습니다.
+C:\Users\lijin\source\repos\TTAk\test.c(870,12): warning C4476: 'printf' : 서식 지정자에 알 수 없는 형식 필드 문자 '\xec'이(가) 있습니다.
+C:\Users\lijin\source\repos\TTAk\test.c(871,12): warning C4476: 'printf' : 서식 지정자에 알 수 없는 형식 필드 문자 '\xec'이(가) 있습니다.
+C:\Users\lijin\source\repos\TTAk\test.c(982,27): warning C4244: '함수': 'double'에서 'size_t'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  TTAk.vcxproj -> C:\Users\lijin\source\repos\TTAk\x64\Debug\TTAk.exe
