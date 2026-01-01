@@ -1,0 +1,4 @@
+﻿  test.c
+C:\Users\lijin\source\repos\Project2\Project2\test.c(229,12): warning C4476: 'printf' : 서식 지정자에 알 수 없는 형식 필드 문자 '\xec'이(가) 있습니다.
+C:\Users\lijin\source\repos\Project2\Project2\test.c(416,12): warning C4476: 'printf' : 서식 지정자에 알 수 없는 형식 필드 문자 '\xec'이(가) 있습니다.
+  Project2.vcxproj -> C:\Users\lijin\source\repos\Project2\x64\Debug\Project2.exe
