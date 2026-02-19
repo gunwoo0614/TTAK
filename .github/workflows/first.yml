@@ -1,0 +1,33 @@
+name: Our First Workflow         # Workflow 이름 (GitHub Actions 탭에서 표시됨)
+
+on: push                        # GitHub 저장소에 코드가 push될 때마다 자동 실행
+
+jobs:                           # 실행할 작업(Job)들을 정의하는 영역
+  build-test:                   # Job 이름 (임의로 지정 가능)
+    runs-on: windows-latest    # Windows 최신 환경에서 실행 (MSVC 사용을 위해 Windows 선택)
+
+    steps:                     # Job 안에서 순차적으로 실행할 단계들
+
+      - uses: actions/checkout@v3
+        # 현재 GitHub 저장소의 코드를 가상 실행 환경으로 가져오는 단계
+        # 이 단계가 있어야 main.c, plus.c 파일을 사용할 수 있음
+
+      - name: Setup MSVC environment
+        uses: ilammy/msvc-dev-cmd@v1
+        # MSVC 컴파일러(cl.exe)를 사용할 수 있도록 Visual Studio 개발자 환경 설정
+        # Windows에서 C 코드를 MSVC로 컴파일하려면 반드시 필요
+
+      - name: Build
+        run: cl /nologo /W4 /EHsc main.c plus.c /Fe:main.exe
+        # cl : MSVC C/C++ 컴파일러 실행
+        # /nologo : 컴파일러 로고 출력 제거
+        # /W4 : 높은 수준의 경고 활성화 (권장)
+        # /EHsc : C++ 예외 처리 옵션 (C만 써도 문제 없음)
+        # main.c plus.c : 컴파일할 소스 파일들
+        # /Fe:main.exe : 출력 실행 파일 이름을 main.exe로 지정
+
+      - name: Test
+        run: .\main.exe
+        # 컴파일된 실행 파일을 실행하는 단계
+        # 프로그램이 정상 실행되면 성공
+        # assert 실패 또는 exit(1) 발생 시 Workflow 실패
